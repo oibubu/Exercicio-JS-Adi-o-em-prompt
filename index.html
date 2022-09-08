@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio de function e array</title>
+</head>
+<body style="background-color: grey;">
+    <script>
+        var numeros = []
+        var numerodoPrompt = window.prompt('Insira quantos numeros você vai querer somar!')
+        var quantidadenumeros = validar(Number(numerodoPrompt))
+        var resultado = soma()
+        window.alert(`O Resultado da soma entre todos os numeros é ${resultado}`)
+        
+        function caixas(quantidadedeprompt){
+            for(var i = 1;i <= quantidadedeprompt; i++){
+                var a = (window.prompt(`Adicione o ${i}° Numero`))
+                if(a.length == 0 || isNaN(Number(a)) == true){
+                    alert(`Nenhum valor numerico foi detectado, será considerado o 0 o valor do ${i}° Numero!`)
+                    a = 0
+                    numeros.push(a)
+                }else{
+                    numeros.push(a)
+                }
+            }
+        }
+
+        function validar(){
+            if(numerodoPrompt.length == 0 || Number(numerodoPrompt) == 0 || isNaN(Number(numerodoPrompt)) == true){
+            retornar(quantidadenumeros)
+            }else{
+            quantidadenumeros = Number(numerodoPrompt)
+            caixas(quantidadenumeros)
+            }
+        }
+
+        function retornar(){
+            alert('[ERRO] Deve insirir pelo menos um numero')
+            return validar(numerodoPrompt = window.prompt('Insira quantos numeros você vai querer somar!'))
+        }
+
+        function soma(){
+            var res = 0
+            for (let q in numeros){
+                res += Number(numeros[q])
+            }
+            return res;
+        }
+
+    </script>
+</body>
+</html>
